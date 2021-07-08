@@ -14,7 +14,15 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(x) {
+        if (x > base) {
+            return true;
+        } else if (x < base) {
+            return false;
+        } else {
+            return "equal";
+        }
+    };
     
     
     // YOUR CODE ABOVE HERE //
@@ -28,7 +36,15 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(x) {
+        if (x < base) {
+            return true;
+        } else if (x > base) {
+            return false;
+        } else {
+            return "equal";
+        }
+    };
     
     
     // YOUR CODE ABOVE HERE //
@@ -42,7 +58,9 @@ function createLessThanFilter(base) {
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(x) {
+        return x[0].toLowerCase() === startsWith.toLowerCase();
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -56,7 +74,9 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(y) {
+        return y[y.length-1].toLowerCase() === endsWith.toLowerCase();
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -72,7 +92,14 @@ function createEndsWithFilter(endsWith) {
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
     
+    //create variable to hold collection (array)
+    var modStr = [];
     
+    //Loop thru array
+    for (var i = 0; i < strings.length; i++) {
+        modStr.push(modify(strings[i]))
+    }
+    return modStr;
     
     
     // YOUR CODE ABOVE HERE //
@@ -90,8 +117,18 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     
+    //loop thru array
     
-    
+    for (var i = 0; i < strings.length; i++) {
+        
+        //return boolean if all strings are true
+        if (test(strings[i]) === false) {
+            //if not all true return false
+            return false;
+        }
+    }
+    //if all true return true
+    return true;
     
     // YOUR CODE ABOVE HERE //
 }

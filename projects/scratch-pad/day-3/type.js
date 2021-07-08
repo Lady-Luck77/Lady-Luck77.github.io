@@ -15,7 +15,7 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    return Array.isArray(value);
     
     
     // YOUR CODE ABOVE HERE //
@@ -32,7 +32,20 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
+     //if value is not an array return false
+    if (Array.isArray(value)) return false;
     
+    //if value is not null return false
+    if (value === null) return false;
+    
+    //if value is not a date return false
+    if (value instanceof Date) return false;
+    
+    //If value is object return true
+    if (typeof value === 'object') return true;
+    
+    //if value is not a number or boolean return false
+    else return false;
     
     
     // YOUR CODE ABOVE HERE //
@@ -47,7 +60,20 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
+    //if value is not an array return true
+    if (Array.isArray(value)) return true;
     
+    //if value is not null return false
+    if (value === null) return false;
+    
+    //if value is not a date return false
+    if (value instanceof Date) return false;
+    
+    //If value is an object return true
+    if (typeof value === "object") return true;
+    
+    //if value is not a number or boolean return false
+    else return false;
     
     
     // YOUR CODE ABOVE HERE //
@@ -75,7 +101,36 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    
+     if(typeof(value) === "string"){
+        return "string";
+        
+    } else if(Array.isArray(value)) {
+        return "array";
+        
+    } else if(typeof(value) === "boolean"){
+          return "boolean";
+          
+    }  else if(typeof(value) === "undefined"){
+        return "undefined";
+        
+    } else if(typeof(value) === "function"){
+        return "function";
+        
+    } else if(value === null) {
+       return "null";
+       
+    } else if(typeof(value) === "number"){
+      return "number";
+      
+    } else if(value instanceof Date) {
+        return "date";
+        
+    } else if(typeof value === "object") {
+        return "object";
+        
+    } else {
+        return "Unknown";
+    }
     
     
     // YOUR CODE ABOVE HERE //
